@@ -33,9 +33,11 @@ function createTileLayer() {
 }
 
 function addMarker() {
+    var popupContent = "<h6><b>Restaurant Centfocs</b></h6><p>Restaurante mediterráneo<br>Carrer Balmes, 16, 08007, Barcelona";
     L.marker(balmes16)
         .on('click', function() {
             centerLeafletMapOnMarker(map, this);
+            this.bindPopup(popupContent).openPopup();
         })
         .addTo(map);
 }
