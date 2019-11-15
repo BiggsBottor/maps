@@ -12,10 +12,11 @@ var osmLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 var popup = L.popup();
+var marker = L.marker();
 
 function onMapClick(e) {
     map.setView(e.latlng, maxZoom);
-    let marker = L.marker(e.latlng).addTo(map);
+    marker.setLatLng(e.latlng).addTo(map);
     marker.bindPopup(`<h6 class="h6"><b>Mis coordenadas son:</b></h6><br> Lat:${e.latlng.lat}, Long:${e.latlng.lng}`).openPopup();
 }
 
